@@ -4,7 +4,7 @@ import subprocess
 import os.path
 import sys
 import random 
-import b64
+import base64
 
 if len(sys.argv) <= 1:
     print("Uh oh! We made a mistake with snakelet05 and accidentally encrypted your flag.")
