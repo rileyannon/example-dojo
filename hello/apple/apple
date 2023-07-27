@@ -13,7 +13,7 @@ fileName = sys.argv[1]
 if not os.path.isfile(fileName):
     print("ERROR: File Does Not Exist")
 else:
-    stream = os.popen('python 3 ' + sys.argv[1])
+    stream = os.popen('python3 ' + sys.argv[1])
     output = stream.read()
 
     if output.lower() == "hello world":
