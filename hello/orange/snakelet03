@@ -28,7 +28,7 @@ arg2 = random.randint(1,10);
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
-    process = subprocess.run(['python3', fileName, arg1, arg2], stdout=subprocess.PIPE)
+    process = subprocess.run(['python3', fileName, str(arg1), str(arg2)], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
     print("Code output: " + txtOut)
 
