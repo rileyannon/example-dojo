@@ -24,9 +24,8 @@ else:
     process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
     print("Code output: " + txtOut)
-    print("Expected output: hi " + config + "!")
 
-    if txtOut.strip().lower() == ("hi " + config + "!"):
+    if txtOut.strip().lower() == ("hi " + config + "!").lower():
         print("Thanks for welcoming me! Here is your flag!\n")
         with open("/flag") as f:
             print(f.read())
