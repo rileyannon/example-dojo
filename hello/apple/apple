@@ -16,7 +16,7 @@ else:
     # output = Popen(['python3', fileName], stdout=PIPE)
     process = subprocess.run(['python3', fileName], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
-    print("Code output: " + txtOut + " " + len(txtOut))
+    print("Code output: " + txtOut + " " + str(len(txtOut)))
 
     if txtOut.strip().lower() == "hello world":
         print("They are equal")
