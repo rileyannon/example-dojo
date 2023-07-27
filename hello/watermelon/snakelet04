@@ -1,0 +1,35 @@
+#!/opt/pwn.college/python
+
+import subprocess
+import os.path
+import sys
+import random 
+
+config = (pathlib.Path(__file__).parent / ".config").read_text().strip()
+
+if len(sys.argv) <= 1:
+    print("Welcome to snakelet04! We are going to learn how to basic string operations.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ1 = sys.argv[1]")
+    print("arg1 is going to be a random phrase you will print to a file.")
+    print("To get the flag, reverse arg1 and print it.")
+    
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+    print("Code output: " + txtOut.strip())
+    print("Expected output: " + config[::-1])
+
+    if txtOut.strip().lower() == config[::-1].lower():
+        print("You got it! Here is your flag!\n")
+        with open("/flag") as f:
+            print(f.read())
+    else:
+        print("Sorry, they did not match! Try again!")
