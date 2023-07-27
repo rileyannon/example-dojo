@@ -26,3 +26,7 @@ modules:
       - id: banana
         name: snakelet02
         description: Let's learn how to use a variable!
+
+      - id: orange
+        name: snakelet03
+        description: Let's learn how to use a variable!
