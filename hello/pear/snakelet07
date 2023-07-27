@@ -7,6 +7,9 @@ import random
 import base64
 import string
 
+
+    
+
 if len(sys.argv) <= 1:
     print("We are going to reverse the roles this challenge.")
     print("For this challenge, you will need to use these lines of code:")
@@ -19,6 +22,10 @@ if len(sys.argv) <= 1:
 
 fileName = sys.argv[1]
 
+async def CreateFile(fileN):
+    process = await subprocess.run(['python3', fileName, fileN], stdout=subprocess.PIPE)
+    return process.stdout.decode()
+
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
@@ -27,7 +34,6 @@ else:
                              string.digits, k=8))
         fileP = open(fileWrite + ".txt", "w")
         fileP.write(f.read())
-        process = await subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE)
-        txtOut = process.stdout.decode()
+        txtOut = CreateFile(fileWrite + ".txt")
         print("Code output: " + txtOut.strip())
         os.remove(fileWrite + ".txt")
