@@ -32,8 +32,11 @@ else:
         if os.path.isfile(config + ".txt"):
             fileP = open(config + ".txt", "r")
             if fileP.read() == config:
+                print("Everything looks good! Here's your flag:")
                 print(f.read())
             else:
                 print("It looks like your file printed the wrong word!")
+            os.remove(config + ".txt") # to prevent cheating
         else:
             print("It looks like a file was not created!")
+
