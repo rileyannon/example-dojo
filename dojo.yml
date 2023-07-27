@@ -34,3 +34,7 @@ modules:
       - id: watermelon
         name: snakelet04
         description: Let's learn to use strings!
+        
+      - id: crabapple
+        name: snakelet05
+        description: Let's learn to use strings!
