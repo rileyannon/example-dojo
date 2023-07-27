@@ -4,7 +4,7 @@ import os
 import os.path
 import sys
 
-if len(sys.argv) <= 1 "":
+if len(sys.argv) <= 1:
     print("Welcome to snakelet01! Please write a Python3 file with a print statement that says \"Hello World\" in it!")
     exit()
 
