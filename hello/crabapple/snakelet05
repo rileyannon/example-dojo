@@ -1,0 +1,28 @@
+#!/opt/pwn.college/python
+
+import subprocess
+import os.path
+import sys
+import random 
+import b64
+
+if len(sys.argv) <= 1:
+    print("Uh oh! We made a mistake with snakelet05 and accidentally encrypted your flag.")
+    print("We'll give it to you through your arguments, BUT you will need to unencrypt it for us.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ1 = sys.argv[1]")
+    print("arg1 is going to be the encrypted flag.")
+    print("To get the flag, make a program that decrypts arg1 and prints it out.")
+    
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    with open("/flag") as f:
+        process = subprocess.run(['python3', fileName, base64.b64encode(f.read()).decode()], stdout=subprocess.PIPE)
+        txtOut = process.stdout.decode()
+        print("Output: " + txtOut.strip())
