@@ -1,6 +1,6 @@
-id: example
+id: example~178bf35f
 
-name: Example Dojo
+name: Basic Python
 
 description: |
   This is an [example dojo](https://github.com/pwncollege/example-dojo).
@@ -14,7 +14,7 @@ award:
 modules:
 
   - id: hello
-    name: Hello
+    name: Hisssss
     description: The first module in this example dojo.
 
     challenges:
@@ -22,25 +22,3 @@ modules:
       - id: apple
         name: Apple
         description: This is apple.
-
-      - id: banana
-        name: Banana
-        description: This is banana.
-
-  - id: world
-    name: World
-    description: The second module in this example dojo.
-
-    challenges:
-
-      - id: earth
-        name: Earth
-        description: This is earth.
-
-      - id: mars
-        name: Mars
-        description: This is mars.
-
-      - id: venus
-        name: Venus
-        description: This is venus.
