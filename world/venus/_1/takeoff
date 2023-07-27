@@ -1,7 +1,0 @@
-#!/opt/pwn.college/python
-
-import sys
-
-if sys.argv[1] == "thom":
-  with open("/flag") as f:
-    print(f.read())
