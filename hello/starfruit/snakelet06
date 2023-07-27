@@ -19,7 +19,7 @@ fileName = sys.argv[1]
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
-    mod = importlib.import_module(fileName[:len(fileName)-3])
+    mod = importlib.import_module(fileName)
 
     try:
         mod.hello()
