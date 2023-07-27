@@ -14,7 +14,7 @@ if not os.path.isfile(fileName):
     print("ERROR: File Does Not Exist")
 else:
     output = Popen(['python3', fileName], stdout=PIPE)
-    txtOut = output.communicate()[0]
+    txtOut = output.communicate()[0].decode("utf-8")
     print("Code output: " + txtOut)
 
     if txtOut.lower() == "hello world":
