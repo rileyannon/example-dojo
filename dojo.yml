@@ -41,4 +41,8 @@ modules:
 
       - id: starfruit
         name: snakelet06
-        description: Let's learn to use strings!
+        description: Let's learn to use file-write!
+
+      - id: pear
+        name: snakelet07
+        description: Let's learn to use file-read!
