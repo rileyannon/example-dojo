@@ -24,7 +24,7 @@ fileName = sys.argv[1]
 
 async def CreateFile(fileN):
     process = await subprocess.run(['python3', fileName, fileN], stdout=subprocess.PIPE)
-    return process.stdout.decode()
+    return await process.stdout.decode()
 
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
