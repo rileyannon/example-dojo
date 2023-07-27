@@ -20,5 +20,9 @@ modules:
     challenges:
 
       - id: apple
-        name: Snakelet01
-        description: Learn basic Python!
+        name: snakelet01
+        description: Let's learn how to say hello world!
+
+      - id: banana
+        name: snakelet02
+        description: Let's learn how to use a variable!
