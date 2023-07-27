@@ -2,6 +2,6 @@
 
 import sys
 
-if sys.argv[1] = "thom":
+if sys.argv[1] == "thom":
   with open("/flag") as f:
     print(f.read())
