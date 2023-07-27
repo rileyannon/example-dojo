@@ -1,17 +1,24 @@
 #!/opt/pwn.college/python
 
-import importlib
 import subprocess
 import os.path
 import sys
+import random 
+import base64
+import pathlib
+
+config = (pathlib.Path(__file__).parent / ".config").read_text().strip()
 
 if len(sys.argv) <= 1:
-    print("Welcome to snakelet02! We are going to learn how to use a variable and print it back out.")
+    print("In this challenge, we are going to create and write to a file using Python.")
     print("For this challenge, you will need to use these lines of code:")
     print("\timport sys")
-    print("\targ = sys.argv[1]")
-    print("We are using sys.argv[1] to get the first argument and then storing it in a variable called \"arg\" to use in line.")
-    print("To get the flag, please print a message saying \"Hi \{name\}!\" to the console!")
+    print("\targ1 = sys.argv[1]")
+    print("\targ2 = sys.argv[2]")
+    print("arg1 is going to be the filename that your program will create.")
+    print("arg2 is going to be the text contained in your file.")
+    print("To get the flag, create a file and write to it!")
+    
     exit()
 
 fileName = sys.argv[1]
@@ -19,13 +26,14 @@ fileName = sys.argv[1]
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
-    mod = importlib.import_module(fileName)
+    with open("/flag") as f:
+        process = subprocess.run(['python3', fileName, config + ".txt" , config], stdout=subprocess.PIPE)
 
-    try:
-        mod.hello()
-
-        with open("/flag") as f:
-            print(f.read())
-        
-    except:
-        print("Uh oh! Looks like your program doesn't include the definition of a function named \"hello\"")
+        if os.path.isfile(config + ".txt"):
+            fileP = open(config + ".txt", "r")
+            if fileP.read() == config:
+                print(f.read())
+            else:
+                print("It looks like your file printed the wrong word!")
+        else:
+            print("It looks like a file was not created!')
