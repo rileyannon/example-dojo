@@ -27,5 +27,5 @@ else:
                              string.digits, k=8))
         fileP = open(fileWrite + ".txt", "w")
         fileP.write(f.read())
-        process = subprocess.run(['python3', fileName, fileWrite + ".txt" , config], stdout=subprocess.PIPE)
+        process = subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE)
         os.remove(fileWrite + ".txt")
