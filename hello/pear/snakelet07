@@ -22,10 +22,6 @@ if len(sys.argv) <= 1:
 
 fileName = sys.argv[1]
 
-async def CreateFile(fileN):
-    process = await subprocess.run(['python3', fileName, fileN], stdout=subprocess.PIPE)
-    return await process.stdout.decode()
-
 if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
@@ -34,6 +30,9 @@ else:
                              string.digits, k=8))
         fileP = open(fileWrite + ".txt", "w")
         fileP.write(f.read())
-        txtOut = CreateFile(fileWrite + ".txt")
+        process = subprocess.run(['python3', fileName, fileN], stdout=subprocess.PIPE)
+        txtOut = process.stdout.decode()
         print("Code output: " + txtOut.strip())
-        os.remove(fileWrite + ".txt")
+
+        if(txtOut != ""):
+            os.remove(fileWrite + ".txt")
