@@ -25,7 +25,7 @@ else:
     txtOut = process.stdout.decode()
     print("Code output: " + txtOut)
 
-    if txtOut.strip().lower() == ("Hi " + config + "!"):
+    if txtOut.strip().lower() == ("hi " + config + "!"):
         print("Thanks for welcoming me! Here is your flag!\n")
         with open("/flag") as f:
             print(f.read())
