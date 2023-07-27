@@ -18,6 +18,7 @@ else:
 
     print("Code output: " + output)
 
-    if str(output).lower() == "hello world":
+    if (output + "") == "hello world":
+        print("They are equal")
         with open("/flag") as f:
             print(f.read())
