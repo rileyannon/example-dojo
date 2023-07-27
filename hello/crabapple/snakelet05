@@ -24,6 +24,7 @@ if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
     with open("/flag") as f:
-        process = subprocess.run(['python3', fileName, base64.b64encode(f.read()).decode()], stdout=subprocess.PIPE)
+        flag = bytes(f.read(), 'utf-8')
+        process = subprocess.run(['python3', fileName, base64.b64encode(flag).decode()], stdout=subprocess.PIPE)
         txtOut = process.stdout.decode()
         print("Output: " + txtOut.strip())
