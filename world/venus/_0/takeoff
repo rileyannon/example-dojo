@@ -2,5 +2,6 @@
 
 import sys
 
-print("3.... 2... 1...")
-print(sys.argv[1])
+if sys.argv[1] = "thom":
+  with open("/flag") as f:
+    print(f.read())
