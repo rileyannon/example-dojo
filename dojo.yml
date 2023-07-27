@@ -30,3 +30,7 @@ modules:
       - id: orange
         name: snakelet03
         description: Let's learn how to use a variable!
+
+      - id: watermelon
+        name: snakelet04
+        description: Let's learn to use strings!
