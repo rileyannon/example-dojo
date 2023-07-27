@@ -33,6 +33,3 @@ else:
         process = subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE)
         txtOut = process.stdout.decode()
         print("Code output: " + txtOut.strip())
-
-        if(txtOut != ""):
-            os.remove(fileWrite + ".txt")
