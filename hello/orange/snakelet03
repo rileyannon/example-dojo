@@ -1,1 +1,40 @@
+#!/opt/pwn.college/python
 
+import pathlib
+import subprocess
+import os.path
+import sys
+import random
+
+if len(sys.argv) <= 1:
+    print("Welcome to snakelet03! We are going to learn how to do basic math functions!")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ1 = sys.argv[1]")
+    print("\targ2 = sys.argv[2]\n")
+    print("Both arg1 and arg2 will be integer (number) inputs. We will do a number of mathematical expressions with them.")
+    print("To get the flag, please print the following expressions (each in their own print statement, in order):")
+    print("arg1 + arg2")
+    print("arg1 * arg2")
+    print("arg1 / arg2")
+    print("arg1 * arg2 * 3")
+    exit()
+
+fileName = sys.argv[1]
+
+arg1 = random.randint(0,10);
+arg2 = random.randint(1,10);
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    process = subprocess.run(['python3', fileName, arg1, arg2], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+    print("Code output: " + txtOut)
+
+    if txtOut.strip().lower() == (str(arg1 + arg2) + str(arg1 * arg2) + str(arg1 / arg2) + str(arg1 * arg2 * 3)).lower():
+        print("The math checks out! Here is your flag!\n")
+        with open("/flag") as f:
+            print(f.read())
+    else:
+        print("Sorry, they did not match! Try again!")
