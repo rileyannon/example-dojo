@@ -1,4 +1,21 @@
 #!/opt/pwn.college/python
 
-with open("/flag") as f:
-    print(f.read())
+import os
+import os.path
+import sys
+
+if len(sys.argv) <= 1 "":
+    print("Welcome to snakelet01! Please write a Python3 file with a print statement that says \"Hello World\" in it!")
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File Does Not Exist")
+else:
+    stream = os.popen('python 3 ' + sys.argv[1])
+    output = stream.read()
+
+    if output.lower() == "hello world":
+        with open("/flag") as f:
+            print(f.read())
