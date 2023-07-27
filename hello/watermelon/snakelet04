@@ -4,6 +4,7 @@ import subprocess
 import os.path
 import sys
 import random 
+import pathlib
 
 config = (pathlib.Path(__file__).parent / ".config").read_text().strip()
 
