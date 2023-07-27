@@ -19,6 +19,6 @@ modules:
 
     challenges:
 
-      - id: apple
-        name: Apple
-        description: This is apple.
+      - id: snakelet01
+        name: Snakelet01
+        description: Learn basic Python!
