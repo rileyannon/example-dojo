@@ -1,0 +1,30 @@
+#!/opt/pwn.college/python
+
+import subprocess
+import os.path
+import sys
+import random 
+import base64
+
+if len(sys.argv) <= 1:
+    print("We are going to reverse the roles this challenge.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ1 = sys.argv[1]")
+    print("arg1 is going to be the filename that your program will READ.")
+    print("To get the flag, read the file and print its contents!")
+    
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    with open("/flag") as f:
+        fileWrite = ''.join(random.choices(string.ascii_uppercase +
+                             string.digits, k=N))
+        fileP = open(fileWrite + ".txt", "w")
+        fileP.write(f.read())
+        process = subprocess.run(['python3', fileName, fileWrite + ".txt" , config], stdout=subprocess.PIPE)
+        os.remove(fileWrite + ".txt")
