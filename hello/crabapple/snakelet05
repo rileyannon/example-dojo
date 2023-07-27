@@ -14,6 +14,7 @@ if len(sys.argv) <= 1:
     print("\targ1 = sys.argv[1]")
     print("arg1 is going to be the encrypted flag.")
     print("To get the flag, make a program that decrypts arg1 and prints it out.")
+    print("Hint: you may need another import statement!")
     
     exit()
 
