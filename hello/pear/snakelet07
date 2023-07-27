@@ -27,7 +27,7 @@ else:
                              string.digits, k=8))
         fileP = open(fileWrite + ".txt", "w")
         fileP.write(f.read())
-        process = subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE)
+        process = await subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE)
         txtOut = process.stdout.decode()
         print("Code output: " + txtOut.strip())
         os.remove(fileWrite + ".txt")
