@@ -1,0 +1,31 @@
+#!/opt/pwn.college/python
+
+import importlib
+import subprocess
+import os.path
+import sys
+
+if len(sys.argv) <= 1:
+    print("Welcome to snakelet02! We are going to learn how to use a variable and print it back out.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ = sys.argv[1]")
+    print("We are using sys.argv[1] to get the first argument and then storing it in a variable called \"arg\" to use in line.")
+    print("To get the flag, please print a message saying \"Hi \{name\}!\" to the console!")
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    mod = importlib.import_module(fileName)
+
+    try:
+        mod.hello()
+
+        with open("/flag") as f:
+            print(f.read())
+        
+    except:
+        print("Uh oh! Looks like your program doesn't include the definition of a function named \"hello\"")
