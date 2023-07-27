@@ -1,6 +1,6 @@
 #!/opt/pwn.college/python
 
-from subprocess import Popen, PIPE
+import subprocess
 import os.path
 import sys
 
@@ -13,8 +13,8 @@ fileName = sys.argv[1]
 if not os.path.isfile(fileName):
     print("ERROR: File Does Not Exist")
 else:
-    output = Popen(['python3', fileName], stdout=PIPE)
-    txtOut = output.communicate()[0].decode("utf-8")
+    # output = Popen(['python3', fileName], stdout=PIPE)
+    txtOut = subprocess.check_output(['python3', fileName])
     print("Code output: " + txtOut)
 
     if txtOut.lower() == "hello world":
