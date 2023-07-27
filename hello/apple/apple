@@ -1,6 +1,6 @@
 #!/opt/pwn.college/python
 
-import os
+from subprocess import Popen, PIPE
 import os.path
 import sys
 
@@ -13,12 +13,11 @@ fileName = sys.argv[1]
 if not os.path.isfile(fileName):
     print("ERROR: File Does Not Exist")
 else:
-    stream = os.popen('python3 ' + sys.argv[1])
-    output = stream.read()
+    output = Popen(['python3', fileName], stdout=PIPE)
+    txtOut = output.stdout.read()
+    print("Code output: " + txtOut)
 
-    print("Code output: " + output)
-
-    if (output + "") == "hello world":
+    if txtOut.lower() == "hello world":
         print("They are equal")
         with open("/flag") as f:
             print(f.read())
