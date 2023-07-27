@@ -14,7 +14,8 @@ if not os.path.isfile(fileName):
     print("ERROR: File Does Not Exist")
 else:
     # output = Popen(['python3', fileName], stdout=PIPE)
-    txtOut = subprocess.check_output(['python3', fileName])
+    process = subprocess.run(['python3', fileName], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
     print("Code output: " + txtOut)
 
     if txtOut.lower() == "hello world":
