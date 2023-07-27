@@ -11,14 +11,15 @@ if len(sys.argv) <= 1:
 fileName = sys.argv[1]
 
 if not os.path.isfile(fileName):
-    print("ERROR: File Does Not Exist")
+    print("ERROR: File does not exist")
 else:
-    # output = Popen(['python3', fileName], stdout=PIPE)
     process = subprocess.run(['python3', fileName], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
-    print("Code output: " + txtOut + " " + str(len(txtOut)))
+    print("Code output: " + txtOut)
 
     if txtOut.strip().lower() == "hello world":
-        print("They are equal")
+        print("They are equal! Here is your flag!")
         with open("/flag") as f:
             print(f.read())
+    else:
+        print("Sorry, they did not match! Try again!")
