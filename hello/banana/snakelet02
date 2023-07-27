@@ -1,0 +1,33 @@
+#!/opt/pwn.college/python
+
+import pathlib
+import subprocess
+import os.path
+import sys
+
+config = (pathlib.Path(__file__).parent / ".config").read_text().strip()
+
+if len(sys.argv) <= 1:
+    print("Welcome to snakelet02! We are going to learn how to use a variable and print it back out.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ = sys.argv[1]")
+    print("We are using sys.argv[1] to get the first argument and then storing it in a variable called \"arg\" to use in line.")
+    print("To get the flag, please print a message saying \"Hi \{name\}!\" to the console!")
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+    print("Code output: " + txtOut)
+
+    if txtOut.strip().lower() == ("Hi " + config + "!"):
+        print("Thanks for welcoming me! Here is your flag!\n")
+        with open("/flag") as f:
+            print(f.read())
+    else:
+        print("Sorry, they did not match! Try again!")
