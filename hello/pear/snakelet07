@@ -24,12 +24,19 @@ if not os.path.isfile(fileName):
     print("ERROR: File does not exist")
 else:
     with open("/flag") as f:
-        fileWrite = ''.join(random.choices(string.ascii_uppercase +
+        secretMessage = ''.join(random.choices(string.ascii_uppercase +
                              string.digits, k=8))
-        fileP = open(fileWrite + ".txt", "w")
-        fileP.write(f.read())
-        process = subprocess.run(['python3', fileName, fileWrite + ".txt"], stdout=subprocess.PIPE, shell=True)
-        time.sleep(3)
+
+        fileP = open("secretmessage.txt", "w")
+        fileP.write(secretMessage)
+        fileP.close()
+
+        process = subprocess.run(['python3', fileName, "secretmessage.txt"], stdout=subprocess.PIPE)
         txtOut = process.stdout.decode()
         print("Code output: " + txtOut.strip())
-        os.remove(fileWrite + ".txt")
+
+        if txtOut.strip() == secretMessage:
+            print(f.read())
+            os.remove("secretmessage.txt")
+        else:
+            print("Looks like it read the wrong file!")
