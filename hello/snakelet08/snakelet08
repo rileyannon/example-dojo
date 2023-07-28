@@ -1,0 +1,50 @@
+#!/opt/pwn.college/python
+
+import subprocess
+import os.path
+import sys
+import random 
+
+if len(sys.argv) <= 1:
+    print("Welcome to snakelet08! We are going to start working with conditionals.")
+    print("For this challenge, you will need to use these lines of code:")
+    print("\timport sys")
+    print("\targ1 = sys.argv[1]")
+    print("You are going to have to make an if-statement with the following condition:")
+    print("\t if arg1 is greater than or equal to 100 -> print it to the console.")
+    print("To get the flag, pass all three tests!")
+    
+    exit()
+
+fileName = sys.argv[1]
+
+if not os.path.isfile(fileName):
+    print("ERROR: File does not exist")
+else:
+    num1 = random.randint(0, 200)
+    num2 = random.randint(0, 200)
+    num3 = random.randint(0, 200)
+
+    # test 1
+    process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+
+    if num1 >= 100 && str(num1) == txtOut.strip():
+        process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
+        txtOut = process.stdout.decode()
+    
+        if num2 >= 100 && str(num2) == txtOut.strip():
+            process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
+            txtOut = process.stdout.decode()
+            
+            if num3 >= 100 && str(num3) == txtOut.strip():
+                print("All conditions passed!! Here is your flag!\n")
+                with open("/flag") as f:
+                    print(f.read())
+            else:
+              print("Test 3 failed!")
+        else:
+          print("Test 2 failed!")
+      
+    else:
+      print("Test 1 failed!")
