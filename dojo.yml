@@ -53,6 +53,6 @@ modules:
 
     challenges:
 
-      - id: snakelet08
+      - id: snakelet8
         name: snakelet08
         description: Let's learn how to say hello world!
