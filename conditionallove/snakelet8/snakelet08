@@ -30,9 +30,9 @@ else:
     process = subprocess.run(['python3', fileName, str(num1)], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
 
-    if int(num1) >= 100 & str(txtOut.strip()) != "":
+    if int(num1) >= 100 and str(txtOut.strip()) != "":
         print("Test 1 passed")
-    elif num < 100 & txtOut.strip() == "":
+    elif num < 100 and txtOut.strip() == "":
         print("Test 1 passed")
     else:
         print("Test 1 failed!")
@@ -42,9 +42,9 @@ else:
     process = subprocess.run(['python3', fileName, str(num2)], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
 
-    if num2 >= 100 & txtOut.strip() != "":
+    if num2 >= 100 and txtOut.strip() != "":
         print("Test 2 passed")
-    elif num < 100 & txtOut.strip() == "":
+    elif num < 100 and txtOut.strip() == "":
         print("Test 2 passed")
     else:
         print("Test 2 failed!")
@@ -54,9 +54,9 @@ else:
     process = subprocess.run(['python3', fileName, str(num3)], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
 
-    if num3 >= 100 & txtOut.strip() != "":
+    if num3 >= 100 and txtOut.strip() != "":
         print("Test 3 passed")
-    elif num < 100 & txtOut.strip() == "":
+    elif num < 100 and txtOut.strip() == "":
         print("Test 3 passed")
     else:
         print("Test 3 failed!")
