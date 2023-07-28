@@ -29,15 +29,15 @@ else:
     process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
 
-    if num1 >= 100 && str(num1) == txtOut.strip():
+    if num1 >= 100 & str(num1) == txtOut.strip():
         process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
         txtOut = process.stdout.decode()
     
-        if num2 >= 100 && str(num2) == txtOut.strip():
+        if num2 >= 100 & str(num2) == txtOut.strip():
             process = subprocess.run(['python3', fileName, config], stdout=subprocess.PIPE)
             txtOut = process.stdout.decode()
             
-            if num3 >= 100 && str(num3) == txtOut.strip():
+            if num3 >= 100 & str(num3) == txtOut.strip():
                 print("All conditions passed!! Here is your flag!\n")
                 with open("/flag") as f:
                     print(f.read())
