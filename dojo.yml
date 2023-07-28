@@ -14,8 +14,8 @@ award:
 modules:
 
   - id: hello
-    name: Hisssss
-    description: The first module in this example dojo.
+    name: Say Hello!
+    description: This module teaches you how to harness the power of I/O and some simple strings.
 
     challenges:
 
