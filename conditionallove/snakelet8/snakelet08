@@ -24,27 +24,44 @@ else:
     num1 = random.randint(0, 200)
     num2 = random.randint(0, 200)
     num3 = random.randint(0, 200)
+    
 
     # test 1
     process = subprocess.run(['python3', fileName, str(num1)], stdout=subprocess.PIPE)
     txtOut = process.stdout.decode()
 
-    if num1 >= 100 & str(num1) == txtOut.strip():
-        process = subprocess.run(['python3', fileName, str(num2)], stdout=subprocess.PIPE)
-        txtOut = process.stdout.decode()
-    
-        if num2 >= 100 & str(num2) == txtOut.strip():
-            process = subprocess.run(['python3', fileName, str(num3)], stdout=subprocess.PIPE)
-            txtOut = process.stdout.decode()
-            
-            if num3 >= 100 & str(num3) == txtOut.strip():
-                print("All conditions passed!! Here is your flag!\n")
-                with open("/flag") as f:
-                    print(f.read())
-            else:
-              print("Test 3 failed!")
-        else:
-          print("Test 2 failed!")
-      
+    if num1 >= 100 & txtOut.strip() != "":
+        print("Test 1 passed")
+    elif num < 100 & txtOut.strip() == "":
+        print("Test 1 passed")
     else:
-      print("Test 1 failed!")
+        print("Test 1 failed!")
+        exit()
+
+    # test 2
+    process = subprocess.run(['python3', fileName, str(num2)], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+
+    if num2 >= 100 & txtOut.strip() != "":
+        print("Test 2 passed")
+    elif num < 100 & txtOut.strip() == "":
+        print("Test 2 passed")
+    else:
+        print("Test 2 failed!")
+        exit()
+
+    # test 3
+    process = subprocess.run(['python3', fileName, str(num3)], stdout=subprocess.PIPE)
+    txtOut = process.stdout.decode()
+
+    if num3 >= 100 & txtOut.strip() != "":
+        print("Test 3 passed")
+    elif num < 100 & txtOut.strip() == "":
+        print("Test 3 passed")
+    else:
+        print("Test 3 failed!")
+        exit()
+
+print("All cases passed! Here is your flag:\n")
+    with open("/flag") as f:
+        print(f.read())
