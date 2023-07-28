@@ -63,5 +63,5 @@ else:
         exit()
 
 print("All cases passed! Here is your flag:\n")
-    with open("/flag") as f:
-        print(f.read())
+with open("/flag") as f:
+    print(f.read())
